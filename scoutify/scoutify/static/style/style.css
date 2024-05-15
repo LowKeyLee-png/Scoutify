@@ -1,0 +1,146 @@
+/* Styles for login and signup pages */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../image/scoutbackground1.jpg'); /* Background image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 800px; /* Adjust the maximum width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: rgba(44, 62, 80, 0.8); /* Dark blue with opacity */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px; /* Increased padding */
+    color: #fff;
+}
+
+.card-header {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px; /* Increased padding */
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-label {
+    color: #fff;
+}
+
+.form-control {
+    margin-bottom: 20px;
+    background-color: rgba(52, 73, 94, 0.8); /* Blue with opacity */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+    padding: 15px 30px; /* Increased padding */
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.link {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 48px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.formlog
+{
+    width: 80%;
+}
+
+.logosc
+{
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-menu {
+    width: 100%; 
+    max-height: 200px; 
+    overflow-y: auto; 
+}
+
+.dropdown-item {
+    cursor: pointer;
+    padding: 8px 16px; 
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa; 
+}
+#searchResults {
+    max-height: 200px; /* Adjust as needed */
+    overflow-y: auto;
+    z-index: 1000;
+    background-color: #2c3e50; /* Dark blue background */
+    border: 1px solid #34495e; /* Border color */
+    border-radius: 0 0 5px 5px; /* Rounded corners for the bottom */
+    margin-top: -1px; /* Connects dropdown with the search bar */
+}
+
+.suggestion {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #fff; /* White text color */
+    transition: background-color 0.3s ease;
+}
+
+.suggestion:hover {
+    background-color: #2980b9; /* Hover background color */
+    color: #fff; /* White text color on hover */
+}
+
+.list-group-item-action:focus, .list-group-item-action:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #2980b9; /* Change this to the hover background color you prefer */
+}
+
+.form-control {
+    background-color: #34495e; /* Dark background for the search bar */
+    color: #fff; /* White text color */
+    border: 1px solid #2c3e50; /* Border color */
+}
+
+.form-control:focus {
+    background-color: #2c3e50; /* Slightly darker background on focus */
+    color: #fff; /* White text color */
+    border-color: #2980b9; /* Focus border color */
+}

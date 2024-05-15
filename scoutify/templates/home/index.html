@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Home - Scoutify{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">Search</div>
+            <div class="card-body position-relative">
+                <form id="searchForm">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2" name="query" id="searchInput">
+                    </div>
+                </form>
+                <div id="searchResults" class="list-group position-absolute w-100"></div> <!-- Container for displaying search results -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResultsDiv = document.getElementById('searchResults');
+
+    searchInput.addEventListener('input', function() {
+        const query = searchInput.value.trim();
+        if (query.length > 2) { // Fetch suggestions when query length > 2
+            fetch(`/search_players/?query=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    searchResultsDiv.innerHTML = ''; // Clear previous search results
+                    if (data.length) {
+                        data.forEach(player => {
+                            const suggestion = document.createElement('a');
+                            suggestion.href = '#';
+                            suggestion.classList.add('list-group-item', 'list-group-item-action', 'suggestion');
+                            suggestion.textContent = player.Player; // Assuming 'Player' is the key for player names
+                            searchResultsDiv.appendChild(suggestion);
+
+                            // Add click event listener to each suggestion
+                            suggestion.addEventListener('click', function() {
+                                searchInput.value = player.Player;
+                                searchResultsDiv.innerHTML = '';
+                            });
+                        });
+                        searchResultsDiv.classList.add('show'); // Show the suggestions dropdown
+                    } else {
+                        searchResultsDiv.classList.remove('show'); // Hide the suggestions dropdown if no results
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    });
+});
+</script>
+{% endblock %}
